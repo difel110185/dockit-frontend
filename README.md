@@ -50,6 +50,7 @@ let [fontsLoaded] = useFonts({
     FiraSans_900Black_Italic,
   });
 ```
+
 3. check if fonts loaded status is true
  ```
 	if (!fontsLoaded) {
@@ -62,3 +63,28 @@ let [fontsLoaded] = useFonts({
 		) 
 	}
  ```
+
+### Adding and using color constants
+1. add color to the colors.js file
+```
+const colors = {
+	'dockitWhite':  '#FBFBFB',
+	'dockitBlack':'#040F16',
+	'dockitNavy': '#0B4F6C',
+	'dockitRed': '#BB0C09',
+	'dockitBlue': '#038AFF',
+	'dockitGrey': '#C6C6C6',
+}
+```
+
+2. import the colors object
+```
+import colors from './constants/colors';
+```
+
+3. access the colors object and pick the color you need
+```
+container: {
+	backgroundColor: colors.dockitWhite,
+},
+```
