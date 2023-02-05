@@ -7,7 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "link-assets": "npx react-native-asset"
+    "link-assets": "npx react-native-asset",
+    "lint": "eslint ./**.js",
+    "lint-fix": "eslint ./**.js --fix"
   },
   "dependencies": {
     "@expo-google-fonts/fira-sans": "^0.2.2",
@@ -19,7 +21,9 @@
     "react-native": "0.70.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-native": "^4.0.0"
   },
   "private": true
 }

@@ -1,6 +1,11 @@
 # dockit-frontend
 Frontend project for Dockit
 
+### Scripts
+- link-assets: links the assets folder to the build, necessary if you add anything to this folder
+- lint: check the linting
+- lint-fix: automatically fixes any linting issues
+
 ### Loading fonts
 1. import your fonts you need
 ```
