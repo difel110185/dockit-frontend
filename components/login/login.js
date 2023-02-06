@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as LocalAuthentication from "expo-local-authentication";
-import { StyleSheet, Text, View, TextInput, Button, Pressable } from "react-native";
+import {StyleSheet, Text, View, TextInput, Button, Pressable } from "react-native";
+import {Shadow} from "react-native-shadow-2";
 import colors from "../../constants/colors";
 import {
     useFonts,
@@ -34,7 +35,7 @@ export default function Login() {
                     }}
                 >
                     <Text style={styles.welcome}>Welcome!</Text>
-                    <Text style={styles.signInMessage}>Please sign in to continue</Text>
+                    <Text style={styles.loginMessage}>Please sign in to continue</Text>
                 </View>
                 <View
                     style={styles.view}
@@ -54,14 +55,17 @@ export default function Login() {
                         keyboardType="default"
                         secureTextEntry={true}
                     />
-                    <Pressable onPress={()=>{
-                        // do login auth
-                    }}>
-                        <Text>
-                            Login
-                        </Text>
-						
-                    </Pressable>
+                    <Shadow style={styles.dropShadow} 
+                        distance={3} 
+                        containerViewStyle={{marginVertical: 20}}
+                        offset={[-1,3]}
+                    >
+                        <Pressable 
+                            onPress={()=>{console.log("do the login auth here");}}
+                            style={styles.loginButton}>
+                            <Text style={styles.loginButtonText}>Login</Text>
+                        </Pressable>
+                    </Shadow>
                 </View>
                 <View style={{
                     flex: 1,
@@ -69,7 +73,6 @@ export default function Login() {
                     justifyContent: "space-evenly"
                 }}>
                     <Button
-                        style={styles.signInButton}
                         title="Learn More"
                         accessibilityLabel="Learn more about this purple button"
                     />
@@ -90,7 +93,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         verticalAlign: "top",
     },
-    
     input: {
         borderRadius: 10,
         borderWidth: 1,
@@ -99,13 +101,20 @@ const styles = StyleSheet.create({
         padding: 10,
         width: 300,
     },
-    
-    signInButton: {
-        backgroundColor: colors.dockitBlue,
+    loginButton: {
+        alignItems: "center",
+        backgroundColor: colors.dockitNavy,
         borderRadius: 10,
+        height: 50,
+        justifyContent: "center",
+        width: 200,
     },
-    
-    signInMessage: {
+    loginButtonText: {
+        color: colors.dockitWhite,
+        fontFamily: "FiraSans_700Bold",
+        fontSize: 20,
+    },
+    loginMessage: {
         color: colors.dockitBlack,
         fontFamily: "FiraSans_400Regular",
         fontSize: 20,
@@ -123,5 +132,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         verticalAlign: "top",
     },
+
     
 });
