@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import * as LocalAuthentication from "expo-local-authentication";
+import { StyleSheet, Text, View, TextInput, Button, Pressable } from "react-native";
 import colors from "../../constants/colors";
 import {
     useFonts,
@@ -16,6 +17,9 @@ export default function Login() {
     });
     const [text, onChangeText] = React.useState("");
     const [number, onChangeNumber] = React.useState("");
+    useEffect(() => {
+        LocalAuthentication.authenticateAsync();
+    }, []);
 
     if (!fontsLoaded) {
         return <Text>We loadin</Text>;
@@ -50,6 +54,14 @@ export default function Login() {
                         keyboardType="default"
                         secureTextEntry={true}
                     />
+                    <Pressable onPress={()=>{
+                        // do login auth
+                    }}>
+                        <Text>
+                            Login
+                        </Text>
+						
+                    </Pressable>
                 </View>
                 <View style={{
                     flex: 1,

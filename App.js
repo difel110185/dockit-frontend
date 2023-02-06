@@ -5,10 +5,10 @@ import Login from "./components/login/login";
 import colors from "./constants/colors";
 export default function App() {
     return (
-      <View style={styles.container}>
-          <Login/>
-          <StatusBar style="auto" />
-      </View>
+        <View style={styles.container}>
+            <Login/>
+            <StatusBar style="auto" />
+        </View>
     );
 }
 
