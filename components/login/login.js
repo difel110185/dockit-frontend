@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as LocalAuthentication from "expo-local-authentication";
 import {StyleSheet, Text, View, TextInput, Button, Pressable } from "react-native";
-import {Shadow} from "react-native-shadow-2";
+// import {Shadow} from "react-native-shadow-2";
 import colors from "../../constants/colors";
 import {
     useFonts,
@@ -55,17 +55,11 @@ export default function Login() {
                         keyboardType="default"
                         secureTextEntry={true}
                     />
-                    <Shadow style={styles.dropShadow} 
-                        distance={3} 
-                        containerViewStyle={{marginVertical: 20}}
-                        offset={[-1,3]}
-                    >
-                        <Pressable 
-                            onPress={()=>{console.log("do the login auth here");}}
-                            style={styles.loginButton}>
-                            <Text style={styles.loginButtonText}>Login</Text>
-                        </Pressable>
-                    </Shadow>
+                    <Pressable 
+                        onPress={()=>{console.log("do the login auth here");}}
+                        style={[styles.loginButton, styles.dropShadow]}>
+                        <Text style={styles.loginButtonText}>Login</Text>
+                    </Pressable>
                 </View>
                 <View style={{
                     flex: 1,
@@ -92,6 +86,16 @@ const styles = StyleSheet.create({
         paddingTop: 100,
         textAlign: "center",
         verticalAlign: "top",
+    },
+    dropShadow: {
+        elevation: 10,
+        shadowColor: colors.dockitBlack,
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.12,
+        shadowRadius: 5.46,
     },
     input: {
         borderRadius: 10,
